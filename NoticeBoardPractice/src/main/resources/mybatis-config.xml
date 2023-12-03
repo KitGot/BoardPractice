@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "https://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+	<settings>
+		<setting name="cacheEnabled" value="true" /> <!-- 디폴트값 true /cashEnabled 캐쉬를 사용할지 안할지 결정한다. -->
+		<setting name="useGeneratedKeys" value="true" /> <!--  디폴트값은 false / 생성키 사용 여부를 결정한다. -->
+		<setting name="mapUnderscoreToCamelCase" value="true" />
+		<setting name="autoMappingBehavior" value="PARTIAL" /> <!-- 디폴트값은 PARTIAL / 조회 결과를 자바 객체에 설정할떄 자동으로 설정하는 방법을 결정  -->											<!-- NONE 자동으로 설정하지 않음 결과 매핑이 필수 , PARTIAL자동으로 설정하지만 중첩 처리 X FULL 자동으로 매핑 후 중첩된 처리도 모두 해줌 -->
+	</settings>
+
+	<environments default="development">
+		<environment id="development">
+			<transactionManager type="JDBC" />
+			<dataSource type="POOLED">
+				<property name="driver" value="com.mysql.cj.jdbc.Driver" />
+				<property name="url" value="jdbc:mysql://localhost:3306/AwsProject" />
+				<property name="username" value="aws" />
+				<property name="password" value="1234" />
+			</dataSource>
+		</environment>
+	</environments>
+	<mappers>
+		<mapper resource="mapper/BoardMapper.xml" />
+	</mappers>
+</configuration>
